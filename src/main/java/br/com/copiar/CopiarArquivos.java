@@ -11,14 +11,18 @@ import org.apache.commons.io.FileUtils;
 
 public class CopiarArquivos {
 
-	public static void main(String[] args) {
+	
+	
+	public void processar(String nomeDaPasta , boolean mandarParaPastaHomologacao) {
 		Charset cp = Charset.forName("cp1252");
 		Arquivo configuracao = new Arquivo();
 		
+		
+		
 		List<String> readLines = null;
-		configuracao.setComecoDoNomeParaCaminhoAbsoluto("C:/Users/Eder/Desenvolvimento/workspace");
+		configuracao.setComecoDoNomeParaCaminhoAbsoluto("C:/Users/Eder/Desenvolvimento/workspace/spprev/");
 		configuracao.setNomeDiretorioRemoto("X:/FontesParaHomologacao"); 
-		configuracao.setNomeDaTarefa(JOptionPane.showInputDialog("Nome da Task"));
+		configuracao.setNomeDaTarefa(nomeDaPasta);
 		
 
 		File diretorioDestino = new File("C:/Users/Eder/backup/Ederson/Ederson/Tasks/" + configuracao.getNomeDaTarefa() + File.separator);
@@ -31,12 +35,16 @@ public class CopiarArquivos {
 			readLines = FileUtils.readLines(new File("arquivo.txt"), cp);
 
 			for (String nomeDoArquivo : readLines) {
-				FileUtils.copyFileToDirectory(new File(configuracao.getComecoDoNomeParaCaminhoAbsoluto() + nomeDoArquivo), diretorioDestino);
+				FileUtils.copyFileToDirectory(new File(configuracao.getComecoDoNomeParaCaminhoAbsoluto() + nomeDoArquivo.trim()), diretorioDestino);
 				System.out.println(nomeDoArquivo);
 			}
 
-			File diretorioRemoto = new File(configuracao.getNomeDiretorioRemoto());
-			FileUtils.copyDirectoryToDirectory(diretorioDestino, diretorioRemoto);
+			if(mandarParaPastaHomologacao) {
+				File diretorioRemoto = new File(configuracao.getNomeDiretorioRemoto());
+				FileUtils.copyDirectoryToDirectory(diretorioDestino, diretorioRemoto);
+			}
+			
+			JOptionPane.showMessageDialog(null, "Foi copiado com sucesso!");
 			
 		} catch (IOException e) {
 			e.printStackTrace();
