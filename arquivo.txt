@@ -1,1 +1,4 @@
-src/com/sondaprev/folhaPagamento/struts/action/CargaCasosPontuaisAction.java
+src/com/sondaprev/atendimento/struts/action/DocumentosAction.java
+src/com/sondaprev/atendimento/struts/action/PapelInformacaoAction.java
+web/jsp/atendimento/documentos.jsp
+web/jsp/cadastro/js/visitaDomiciliar.js

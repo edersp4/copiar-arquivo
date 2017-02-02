@@ -13,9 +13,6 @@ import br.com.copiar.CopiarArquivos;
 
 public class ViewPrincipal {
 	
-	
-	
-
 	private JFrame frame;
 	private JTextField nomeDaPastatxt;
 	private JLabel nomeDaPastaLb , pastaHomologacaolb;
