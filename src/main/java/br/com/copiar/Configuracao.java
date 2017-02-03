@@ -14,7 +14,8 @@ public class Configuracao {
 		PropertiesConfiguration configuration;
 		try {
 			configuration = builder.getConfiguration();
-			configuration.addProperty("ederson", "teste");
+			configuration.addProperty("pasta.homologacao", nomeDaPastaHomologacao);
+			configuration.addProperty("pasta.local", nomeDaPastaLocal);
 			builder.save();
 		} catch (ConfigurationException e) {
 			e.printStackTrace();
