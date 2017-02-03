@@ -20,12 +20,11 @@ public class CopiarArquivos {
 		
 		
 		List<String> readLines = null;
-		configuracao.setComecoDoNomeParaCaminhoAbsoluto("C:/Users/Eder/Desenvolvimento/workspace/spprev/");
-		configuracao.setNomeDiretorioRemoto("X:/FontesParaHomologacao"); 
-		configuracao.setNomeDaTarefa(nomeDaPasta);
+		configuracao.setCaminhoDoProjeto("C:/Users/Eder/Desenvolvimento/workspace/spprev/");
+		configuracao.setCaminhoDoDiretorioRemoto("X:/FontesParaHomologacao"); 
 		
 
-		File diretorioDestino = new File("C:/Users/Eder/backup/Ederson/Ederson/Tasks/" + configuracao.getNomeDaTarefa() + File.separator);
+		File diretorioDestino = new File("C:/Users/Eder/backup/Ederson/Ederson/Tasks/" + nomeDaPasta + File.separator);
 	
 		if(!diretorioDestino.exists()) {
 			diretorioDestino.mkdir();
