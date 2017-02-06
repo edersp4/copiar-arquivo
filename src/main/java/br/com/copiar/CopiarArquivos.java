@@ -21,10 +21,11 @@ public class CopiarArquivos {
 		
 		List<String> readLines = null;
 		configuracao.setCaminhoDoProjeto("C:/Users/Eder/Desenvolvimento/workspace/spprev/");
-		configuracao.setCaminhoDoDiretorioRemoto("X:/FontesParaHomologacao"); 
+		configuracao.setNomeDiretorioRemoto("X:/FontesParaHomologacao"); 
+		configuracao.setNomeDoDiretorioDestino("C:/Users/Eder/backup/Ederson/Ederson/Tasks/");
 		
 
-		File diretorioDestino = new File("C:/Users/Eder/backup/Ederson/Ederson/Tasks/" + nomeDaPasta + File.separator);
+		File diretorioDestino = new File(configuracao.getNomeDoDiretorioDestino() + nomeDaPasta + File.separator);
 	
 		if(!diretorioDestino.exists()) {
 			diretorioDestino.mkdir();
@@ -34,7 +35,7 @@ public class CopiarArquivos {
 			readLines = FileUtils.readLines(new File("arquivo.txt"), cp);
 
 			for (String nomeDoArquivo : readLines) {
-				FileUtils.copyFileToDirectory(new File(configuracao.getComecoDoNomeParaCaminhoAbsoluto() + nomeDoArquivo.trim()), diretorioDestino);
+				FileUtils.copyFileToDirectory(new File(configuracao.getCaminhoDoProjeto() + nomeDoArquivo.trim()), diretorioDestino);
 				System.out.println(nomeDoArquivo);
 			}
 

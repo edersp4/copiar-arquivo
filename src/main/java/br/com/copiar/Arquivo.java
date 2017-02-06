@@ -1,20 +1,33 @@
 package br.com.copiar;
 
 public class Arquivo {
-	
-	private String comecoDoNomeParaCaminhoAbsoluto;
-	private String nomeDiretorioRemoto ;
 
-	public String getComecoDoNomeParaCaminhoAbsoluto() {
-		return comecoDoNomeParaCaminhoAbsoluto;
-	}
-	public void setCaminhoDoProjeto(String comecoDoNomeParaCaminhoAbsoluto) {
-		this.comecoDoNomeParaCaminhoAbsoluto = comecoDoNomeParaCaminhoAbsoluto;
-	}
+	private String caminhoDoProjeto;
+	private String nomeDiretorioRemoto;
+	private String nomeDoDiretorioDestino;
+
 	public String getNomeDiretorioRemoto() {
 		return nomeDiretorioRemoto;
 	}
-	public void setCaminhoDoDiretorioRemoto(String nomeDiretorioRemoto) {
+
+	public void setNomeDiretorioRemoto(String nomeDiretorioRemoto) {
 		this.nomeDiretorioRemoto = nomeDiretorioRemoto;
 	}
+
+	public String getNomeDoDiretorioDestino() {
+		return nomeDoDiretorioDestino;
+	}
+
+	public void setNomeDoDiretorioDestino(String nomeDoDiretorioDestino) {
+		this.nomeDoDiretorioDestino = nomeDoDiretorioDestino;
+	}
+
+	public String getCaminhoDoProjeto() {
+		return caminhoDoProjeto;
+	}
+
+	public void setCaminhoDoProjeto(String caminhoDoProjeto) {
+		this.caminhoDoProjeto = caminhoDoProjeto;
+	}
+
 }

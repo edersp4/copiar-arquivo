@@ -9,13 +9,14 @@ public class Configuracao {
 	
 	Configurations configs = new Configurations();
 	
-	public void gravarConfiguracao(String nomeDaPastaLocal , String nomeDaPastaHomologacao) {
+	public void gravarConfiguracao(Arquivo arquivo) {
 		FileBasedConfigurationBuilder<PropertiesConfiguration>builder = configs.propertiesBuilder("configuracao.properties");
 		PropertiesConfiguration configuration;
 		try {
 			configuration = builder.getConfiguration();
-			configuration.addProperty("pasta.homologacao", nomeDaPastaHomologacao);
-			configuration.addProperty("pasta.local", nomeDaPastaLocal);
+			configuration.setProperty("pasta.projeto", arquivo.getCaminhoDoProjeto());
+			configuration.setProperty("pasta.destino", arquivo.getNomeDoDiretorioDestino());
+			configuration.setProperty("pasta.remoto", arquivo.getNomeDiretorioRemoto());
 			builder.save();
 		} catch (ConfigurationException e) {
 			e.printStackTrace();
@@ -27,7 +28,5 @@ public class Configuracao {
 		
 	}
 	
-	public static void main(String[] args) {
-		new Configuracao().gravarConfiguracao("ederson" , "ederson");
-	}
+	
 }

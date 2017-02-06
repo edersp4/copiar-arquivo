@@ -1,1 +1,2 @@
-web/jsp/folhaPagamento/cargaCasosPontuais.jsp
+web/reports/atendimento/Requerimento_Pensao.pdf
+web/reports/atendimento/Requerimento_Pensao_Militar.pdf
