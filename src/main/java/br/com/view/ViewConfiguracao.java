@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import br.com.copiar.Arquivo;
@@ -35,11 +36,6 @@ public class ViewConfiguracao {
 		    nomeDaPastaRemototxt.setBounds( 200,100,200,30); 
 		    nomeDaPastaRemototxt.setEditable(false);
 		    
-		    
-		    
-		    
-		    
-		    
 		    nomeDaPastaProjetoLb = new JLabel("Selecione a Pasta do Projeto");  
 		    nomeDaPastaProjetoLb.setBounds( 10,20,200,30);
 
@@ -48,10 +44,6 @@ public class ViewConfiguracao {
 		    
 		    nomeDaPastaRemotoLb = new JLabel("Selecione a Pasta Remoto");  
 		    nomeDaPastaRemotoLb.setBounds( 10,100,200,30);
-		    
-		    
-		    
-		    
 		    
 		    buscarDiretorioProjeto = new JButton("...");  
 		    buscarDiretorioProjeto.setBounds( 400,20,50,30);
@@ -69,6 +61,7 @@ public class ViewConfiguracao {
 				    if (procurarbtn.showOpenDialog(procurarbtn) == JFileChooser.APPROVE_OPTION) { 
 				    	configuracao.setCaminhoDoProjeto(procurarbtn.getSelectedFile().toString());
 				    	nomeDaPastaProjetotxt.setText(configuracao.getCaminhoDoProjeto());
+				    	JOptionPane.showMessageDialog(null, "Gravado com sucesso");
 				      }
 				    else {
 				      System.out.println("No Selection ");

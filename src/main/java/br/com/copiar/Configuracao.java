@@ -24,9 +24,18 @@ public class Configuracao {
 	}
 	
 	
-	public void lerArquivoConfiguracao() {
+	public Arquivo popularArquivoConfiguracao() throws Exception {
+		FileBasedConfigurationBuilder<PropertiesConfiguration>builder = configs.propertiesBuilder("configuracao.properties");
+		PropertiesConfiguration configuration = builder.getConfiguration();
+		Arquivo arquivo = new Arquivo();
 		
+		if(!configuration.isEmpty()) {
+			arquivo.setCaminhoDoProjeto(configuration.getString("pasta.projeto"));
+			arquivo.setNomeDoDiretorioDestino(configuration.getString("pasta.destino"));
+			arquivo.setNomeDiretorioRemoto(configuration.getString("pasta.remoto"));
+		}else {
+			throw new Exception("Favor configurar o sistema");
+		}
+		return arquivo;
 	}
-	
-	
 }

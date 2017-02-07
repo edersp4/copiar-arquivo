@@ -1,5 +1,6 @@
 package br.com.copiar;
 
+import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -15,39 +16,51 @@ public class CopiarArquivos {
 	
 	public void processar(String nomeDaPasta , boolean mandarParaPastaHomologacao) {
 		Charset cp = Charset.forName("cp1252");
-		Arquivo configuracao = new Arquivo();
-		
-		
-		
-		List<String> readLines = null;
-		configuracao.setCaminhoDoProjeto("C:/Users/Eder/Desenvolvimento/workspace/spprev/");
-		configuracao.setNomeDiretorioRemoto("X:/FontesParaHomologacao"); 
-		configuracao.setNomeDoDiretorioDestino("C:/Users/Eder/backup/Ederson/Ederson/Tasks/");
-		
-
-		File diretorioDestino = new File(configuracao.getNomeDoDiretorioDestino() + nomeDaPasta + File.separator);
-	
-		if(!diretorioDestino.exists()) {
-			diretorioDestino.mkdir();
-		}
+		Arquivo arquivoConfiguracao = new Arquivo();
+		Configuracao configuracao = new Configuracao();
 		
 		try {
+			arquivoConfiguracao = configuracao.popularArquivoConfiguracao();
+		
+			List<String> readLines = null;
+
+			File diretorioDestino = new File(arquivoConfiguracao.getNomeDoDiretorioDestino() + nomeDaPasta + File.separator);
+	
+			if (!diretorioDestino.exists()) {
+				diretorioDestino.mkdir();
+			}
+
 			readLines = FileUtils.readLines(new File("arquivo.txt"), cp);
 
 			for (String nomeDoArquivo : readLines) {
-				FileUtils.copyFileToDirectory(new File(configuracao.getCaminhoDoProjeto() + nomeDoArquivo.trim()), diretorioDestino);
+				FileUtils.copyFileToDirectory(new File(arquivoConfiguracao.getCaminhoDoProjeto() + nomeDoArquivo.trim()), diretorioDestino);
 				System.out.println(nomeDoArquivo);
 			}
 
 			if(mandarParaPastaHomologacao) {
-				File diretorioRemoto = new File(configuracao.getNomeDiretorioRemoto());
+				File diretorioRemoto = new File(arquivoConfiguracao.getNomeDiretorioRemoto());
 				FileUtils.copyDirectoryToDirectory(diretorioDestino, diretorioRemoto);
 			}
 			
 			JOptionPane.showMessageDialog(null, "Foi copiado com sucesso!");
 			
-		} catch (IOException e) {
-			e.printStackTrace();
+		} catch (Exception e1) {
+			JOptionPane.showMessageDialog(null, e1.getMessage());
+			e1.printStackTrace();
+		}
+		
+	}
+	
+	public void abrirArquivoDeCopia() throws Exception {
+		try {
+	    	Runtime runtime = Runtime.getRuntime();
+	    	runtime.exec("C:\\Program Files\\Notepad++\\notepad++.exe arquivo.txt");
+	    }catch (Exception e) {
+	    	if (Desktop.isDesktopSupported()) {
+	    	    Desktop.getDesktop().edit(new File("arquivo.txt"));
+	    	} else {
+	    		throw new Exception("Não é possível abrir o arquivo");
+	    	}
 		}
 	}
 }
