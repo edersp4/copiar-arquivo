@@ -2,7 +2,6 @@ package br.com.copiar;
 
 import java.awt.Desktop;
 import java.io.File;
-import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.List;
 
@@ -24,7 +23,7 @@ public class CopiarArquivos {
 		
 			List<String> readLines = null;
 
-			File diretorioDestino = new File(arquivoConfiguracao.getNomeDoDiretorioDestino() + nomeDaPasta + File.separator);
+			File diretorioDestino = new File(arquivoConfiguracao.getNomeDoDiretorioDestino() + File.separator + nomeDaPasta + File.separator);
 	
 			if (!diretorioDestino.exists()) {
 				diretorioDestino.mkdir();
@@ -33,7 +32,7 @@ public class CopiarArquivos {
 			readLines = FileUtils.readLines(new File("arquivo.txt"), cp);
 
 			for (String nomeDoArquivo : readLines) {
-				FileUtils.copyFileToDirectory(new File(arquivoConfiguracao.getCaminhoDoProjeto() + nomeDoArquivo.trim()), diretorioDestino);
+				FileUtils.copyFileToDirectory(new File(arquivoConfiguracao.getCaminhoDoProjeto() + File.separator + nomeDoArquivo.trim()), diretorioDestino);
 				System.out.println(nomeDoArquivo);
 			}
 

@@ -1,2 +1,3 @@
-web/reports/atendimento/Requerimento_Pensao.pdf
-web/reports/atendimento/Requerimento_Pensao_Militar.pdf
+src/com/sondaprev/atendimento/struts/action/PapelInformacaoAction.java
+web/reports/cadastro/Oficio_Falta_Documentos.jasper
+web/reports/cadastro/Oficio_Falta_Documentos.jrxml
