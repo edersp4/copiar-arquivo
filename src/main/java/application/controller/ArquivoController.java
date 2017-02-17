@@ -9,25 +9,25 @@ public class ArquivoController {
 
 	private Stage dialogStage;
 	
-	
 	@FXML
 	private TextField nomeDaPasta;
 	
 	@FXML
-	private TextField copiarParaHomologacao;
-	
-	@FXML
-	private Button abrirArquivo;
-	
-	@FXML
-	private Button copiar;
-	
+	private Button copiarbtn;
 	
 	public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
     }
 	
 	
+//	@FXML
+//    private void initialize(){
+//    }
+//	
+	@FXML
+	public void buscarOla() {
+		System.out.println("teste");
+	}
 	
 
 }

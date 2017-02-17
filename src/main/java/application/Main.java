@@ -14,9 +14,10 @@ public class Main extends Application {
 		try {
 			AnchorPane  rootLayout = new AnchorPane();
 		    FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(ArquivoMain.class.getResource("/copy.fxml"));
+            loader.setLocation(Main.class.getResource("/copy.fxml"));
             rootLayout = (AnchorPane) loader.load();
             ArquivoController controller = loader.getController();
+			controller.setDialogStage(primaryStage);
     		Scene scene = new Scene(rootLayout);
 		    primaryStage.setScene(scene);
 		    primaryStage.setTitle("Copiar");

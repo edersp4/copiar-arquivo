@@ -1,3 +1,1 @@
-src/com/sondaprev/atendimento/struts/action/PapelInformacaoAction.java
-web/reports/cadastro/Oficio_Falta_Documentos.jasper
-web/reports/cadastro/Oficio_Falta_Documentos.jrxml
+web/jsp/atendimento/documentos.jsp
