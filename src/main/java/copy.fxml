@@ -7,8 +7,9 @@
 
 <AnchorPane prefHeight="356.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ArquivoController">
    <children>
-      <TextField layoutX="139.0" layoutY="69.0" prefHeight="25.0" prefWidth="290.0" />
+      <TextField fx:id="nomeDaPasta" layoutX="139.0" layoutY="69.0" prefHeight="25.0" prefWidth="290.0" />
       <Label layoutX="36.0" layoutY="72.0" text="Nome da pasta" />
-      <Button fx:id="copiarbtn" layoutX="51.0" layoutY="193.0" mnemonicParsing="false" onAction="#buscarOla" text="Button" />
+      <Button fx:id="copiarbtn" layoutX="89.0" layoutY="194.0" mnemonicParsing="false" onAction="#copiarArquivo" prefHeight="25.0" prefWidth="160.0" text="Copiar Arquivos" />
+      <Button fx:id="abrirArquivobtn" layoutX="269.0" layoutY="194.0" mnemonicParsing="false" onAction="#abrirArquivo" prefHeight="25.0" prefWidth="160.0" text="Abrir Arquivo" />
    </children>
 </AnchorPane>

@@ -1,1 +1,1 @@
-web/jsp/atendimento/documentos.jsp
+web/jsp/beneficios/analise_rubricas_aposentadoria.jsp
