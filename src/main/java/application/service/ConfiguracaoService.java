@@ -33,6 +33,7 @@ public class ConfiguracaoService {
 			arquivo.setCaminhoDoProjeto(configuration.getString("pasta.projeto"));
 			arquivo.setNomeDoDiretorioDestino(configuration.getString("pasta.destino"));
 			arquivo.setNomeDiretorioRemoto(configuration.getString("pasta.remoto"));
+			arquivo.setNomeDoDiretorioDestinoZipado(configuration.getString("pasta.zip"));
 		}else {
 			throw new Exception("Favor configurar o sistema");
 		}

@@ -11,7 +11,7 @@
 		<main.class>application.Main</main.class>
 		<commons.io.version>2.5</commons.io.version>
 		<commons.configuration.version>2.1</commons.configuration.version>
-		
+
 	</properties>
 
 	<dependencies>
@@ -31,6 +31,20 @@
 			<artifactId>commons-beanutils</artifactId>
 			<version>1.9.3</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/ant/ant -->
+		<dependency>
+			<groupId>ant</groupId>
+			<artifactId>ant</artifactId>
+			<version>1.7.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/net.lingala.zip4j/zip4j -->
+		<dependency>
+			<groupId>net.lingala.zip4j</groupId>
+			<artifactId>zip4j</artifactId>
+			<version>1.3.2</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<finalName>${jar.final.name}</finalName>

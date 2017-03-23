@@ -9,6 +9,8 @@ import javax.swing.JOptionPane;
 
 import org.apache.commons.io.FileUtils;
 
+import application.service.ZipUtil;
+
 public class CopiarArquivos {
 
 	
@@ -17,7 +19,7 @@ public class CopiarArquivos {
 		Charset cp = Charset.forName("cp1252");
 		Arquivo arquivoConfiguracao = new Arquivo();
 		Configuracao configuracao = new Configuracao();
-		
+		boolean zip = true;
 		try {
 			arquivoConfiguracao = configuracao.popularArquivoConfiguracao();
 		
@@ -39,6 +41,10 @@ public class CopiarArquivos {
 			if(mandarParaPastaHomologacao) {
 				File diretorioRemoto = new File(arquivoConfiguracao.getNomeDiretorioRemoto());
 				FileUtils.copyDirectoryToDirectory(diretorioDestino, diretorioRemoto);
+			}
+			
+			if(zip) {
+				ZipUtil.zipFolder(diretorioDestino.getAbsolutePath() + ".zip", diretorioDestino);
 			}
 			
 			JOptionPane.showMessageDialog(null, "Foi copiado com sucesso!");

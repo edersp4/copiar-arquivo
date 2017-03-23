@@ -1,0 +1,6 @@
+<project name="scripts diarios" default="main" >
+	<taskdef name="mudarBanco" classname="br.com.mudar.versao.banco.MudarVersaoDoBanco" classpath="/target"></taskdef>
+	<target name="main">
+		<mudarBanco/>
+	</target>	
+</project>

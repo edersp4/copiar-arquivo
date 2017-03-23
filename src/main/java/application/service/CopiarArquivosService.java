@@ -13,7 +13,7 @@ public class CopiarArquivosService {
 
 	
 	
-	public void processar(String nomeDaPasta , boolean mandarParaPastaHomologacao) {
+	public void processar(String nomeDaPasta , boolean mandarParaPastaHomologacao , boolean zip) {
 		Charset cp = Charset.forName("cp1252");
 		ArquivoService arquivoConfiguracao = new ArquivoService();
 		ConfiguracaoService configuracao = new ConfiguracaoService();
@@ -39,6 +39,10 @@ public class CopiarArquivosService {
 			if(mandarParaPastaHomologacao) {
 				File diretorioRemoto = new File(arquivoConfiguracao.getNomeDiretorioRemoto());
 				FileUtils.copyDirectoryToDirectory(diretorioDestino, diretorioRemoto);
+			}
+			
+			if(zip) {
+				ZipUtil.zipFolder(diretorioDestino.getAbsolutePath() + ".zip", diretorioDestino);
 			}
 			
 			JOptionPane.showMessageDialog(null, "Foi copiado com sucesso!");
