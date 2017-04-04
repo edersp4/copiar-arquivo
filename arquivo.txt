@@ -1,1 +1,5 @@
-src/com/sondaprev/folhaPagamento/struts/action/CargaCasosPontuaisAction.java
+src/com/sondaprev/folhaPagamento/struts/action/ConsultaConceitosPagamentoAction.java
+src/com/sondaprev/folhaPagamento/model/daobase/ConceitosPagDAOBase.java
+src/com/sondaprev/folhaPagamento/model/dao/RubricasDAO.java			
+web/jsp/folhaPagamento/consultaConceitosPagamento.jsp
+web/WEB-INF/struts-config.xml

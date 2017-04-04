@@ -42,7 +42,7 @@ public class CopiarArquivosService {
 			}
 			
 			if(zip) {
-				ZipUtil.zipFolder(diretorioDestino.getAbsolutePath() + ".zip", diretorioDestino);
+				ZipUtil.zipFolder(arquivoConfiguracao.getNomeDoDiretorioDestinoZipado() + nomeDaPasta + ".zip", diretorioDestino);
 			}
 			
 			JOptionPane.showMessageDialog(null, "Foi copiado com sucesso!");
